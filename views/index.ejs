@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+        <img id="image"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <script>
+            let socket = io.connect("http://10.252.10.35:8080");
+            socket.on('image', (image) => {
+                const images = document.getElementById('image');
+                images.src = `data:image/jpeg;base64,${image}`;
+            })
+
+        </script>
+  </body>
+</html>
